@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PawPost — Local pet sitters &amp; dog walkers in Leeds</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,500&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+  {# ---------- Reusable paw mark ---------- #}
+  {% set pawmark %}
+  <svg class="pawmark" viewBox="0 0 64 64" aria-hidden="true">
+    <ellipse cx="32" cy="40" rx="16" ry="13"/>
+    <ellipse cx="14" cy="24" rx="7" ry="9" transform="rotate(-25 14 24)"/>
+    <ellipse cx="50" cy="24" rx="7" ry="9" transform="rotate(25 50 24)"/>
+    <ellipse cx="24" cy="12" rx="6" ry="8" transform="rotate(-12 24 12)"/>
+    <ellipse cx="40" cy="12" rx="6" ry="8" transform="rotate(12 40 12)"/>
+  </svg>
+  {% endset %}
+
+  <!-- ============ TOP BAR ============ -->
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a href="#" class="logo">{{ pawmark }} PawPost</a>
+      <nav class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#areas">Areas</a>
+        <a href="#sitters">Sitters</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <a href="#book" class="btn btn-primary">Book a sitter</a>
+    </div>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <div>
+        <div class="eyebrow">Leeds &amp; the wider North</div>
+        <h1>Someone you'd<br>actually <em>trust</em><br>with the spare key.</h1>
+        <p class="lead">
+          PawPost connects pet owners across Leeds, Bradford, Wakefield, York,
+          Sheffield and Manchester with vetted local sitters and walkers —
+          for dogs, cats, rabbits and more. No call centres. Just neighbours
+          who know the area.
+        </p>
+        <div class="hero-ctas">
+          <a href="#book" class="btn btn-primary">Find a sitter</a>
+          <a href="#services" class="btn btn-ghost">See services &amp; pricing</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="num">{{ sitter_count }}</span>
+            <span class="label">vetted sitters</span>
+          </div>
+          <div class="stat">
+            <span class="num">{{ customer_count }}+</span>
+            <span class="label">happy households</span>
+          </div>
+          <div class="stat">
+            <span class="num">{{ areas|length }}</span>
+            <span class="label">towns &amp; cities</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-art">
+        <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=900&q=80"
+             alt="A relaxed dog out on a walk">
+        <div class="hero-badge">
+          {{ pawmark }}
+          <div>
+            <strong>Started over Biscuit</strong>
+            <span>A founder's dog who needed a trustworthy sitter — so we built one</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WALK ROUTE DIVIDER ============ -->
+  <div class="container walk-route" aria-hidden="true">
+    <svg viewBox="0 0 1100 60" preserveAspectRatio="none">
+      <path d="M0,30 C150,0 300,60 450,30 C600,0 750,60 900,30 C1000,12 1050,12 1100,30"
+            fill="none" stroke="#C1652F" stroke-width="2" stroke-dasharray="2 10" stroke-linecap="round"/>
+    </svg>
+  </div>
+
+  <!-- ============ STORY ============ -->
+  <section class="section" id="story">
+    <div class="container">
+      <div class="story">
+        <div class="story-grid">
+          <img src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?auto=format&fit=crop&w=900&q=80"
+               alt="A dog being walked on a lead through a park">
+          <div class="story-copy">
+            <div class="eyebrow">How it started</div>
+            <h3>It started with one dog called <span class="pet-name">Biscuit</span>.</h3>
+            <p>
+              When one of our founders had a family emergency, the kennels
+              were full and the sitters they found online had no reviews, no
+              checks, and no easy way to book. Turns out every neighbour had
+              the same story.
+            </p>
+            <p>
+              What began as a shared spreadsheet of trusted sitters has grown
+              into a proper local network — around {{ sitter_count }} vetted
+              sitters and {{ customer_count }}+ regular customers across
+              Yorkshire and the wider North.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SERVICES ============ -->
+  <section class="section" id="services">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Services &amp; typical pricing</div>
+        <h2>Whatever your pet needs, there's a local sitter for it.</h2>
+        <p>Prices vary a little by sitter and area — think of these as a friendly starting point, not the final word.</p>
+      </div>
+      <div class="services-grid">
+        {% for s in services %}
+        <div class="service-card">
+          <div class="service-icon">
+            {% if s.icon == 'walk' %}
+            <svg viewBox="0 0 24 24"><path d="M13 4a2 2 0 1 1 0 4 2 2 0 0 1 0-4Z" fill="currentColor" stroke="none"/><path d="M9 21l2-6-3-2 1-5 4 1 3 4-2 8M6 11l3-1"/></svg>
+            {% elif s.icon == 'sun' %}
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.5 4.5l2 2M17.5 17.5l2 2M19.5 4.5l-2 2M6.5 17.5l-2 2"/></svg>
+            {% elif s.icon == 'moon' %}
+            <svg viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5Z"/></svg>
+            {% elif s.icon == 'cat' %}
+            <svg viewBox="0 0 24 24"><path d="M4 8l3-4 1 4M20 8l-3-4-1 4"/><rect x="5" y="8" width="14" height="11" rx="5"/><circle cx="9.5" cy="13" r="0.6" fill="currentColor"/><circle cx="14.5" cy="13" r="0.6" fill="currentColor"/></svg>
+            {% else %}
+            <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="6" rx="2"/><path d="M5 11l2-4h10l2 4"/><circle cx="7.5" cy="17.5" r="1.5" fill="currentColor"/><circle cx="16.5" cy="17.5" r="1.5" fill="currentColor"/></svg>
+            {% endif %}
+          </div>
+          <h3>{{ s.name }}</h3>
+          <div class="service-price">{{ s.price }} <span>{{ s.unit }}</span></div>
+          <p class="blurb">{{ s.blurb }}</p>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ AREAS ============ -->
+  <section class="section" id="areas">
+    <div class="container">
+      <div class="areas-wrap">
+        <div>
+          <div class="section-head" style="margin-bottom:28px;">
+            <div class="eyebrow">Where we walk</div>
+            <h2>Local, not corporate.</h2>
+            <p>
+              Every sitter is interviewed personally and most have lived in
+              their area for years — that's why we know it's better to stay
+              small and local than to chase scale.
+            </p>
+          </div>
+          <p class="area-note">
+            Lots of enquiries from Huddersfield and Halifax too — we're
+            growing the sitter network there, so let us know if you're
+            nearby and we'll keep you posted.
+          </p>
+        </div>
+        <ul class="area-list">
+          {% for area in areas %}
+          <li>
+            <svg viewBox="0 0 24 24"><path d="M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5Z"/></svg>
+            {{ area }}
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SITTERS ============ -->
+  <section class="section" id="sitters">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Meet a few of the team</div>
+        <h2>Real local people, vetted before they ever meet your pet.</h2>
+        <p>Two references and a phone interview before approval — every sitter lists exactly which services and areas they cover.</p>
+      </div>
+      <div class="sitters-grid">
+        {% for sitter in top_sitters %}
+        <div class="sitter-card">
+          <div class="sitter-avatar">{{ sitter['name'][0] }}</div>
+          <h3>{{ sitter['name'] }}</h3>
+          <div class="city">{{ sitter['city'] }}</div>
+          <div class="rating">★ {{ '%.1f'|format(sitter['rating']) }}</div>
+          <div class="services-tag">{{ sitter['services'] }}</div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="section" id="faq">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Common questions</div>
+        <h2>Ask our assistant anything — or browse the basics here.</h2>
+        <p>These are the questions we hear most. Tap one to ask the PawPost Assistant directly.</p>
+      </div>
+      <div class="faq-list">
+        {% for q in faq_hints %}
+        <div class="faq-item" data-question="{{ q }}">
+          {{ q }}
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BOOK / CONTACT ============ -->
+  <section class="section" id="book">
+    <div class="container">
+      <div class="areas-wrap" style="background: var(--terracotta);">
+        <div>
+          <div class="section-head" style="margin-bottom:0;">
+            <div class="eyebrow" style="color: var(--cream);">Ready when you are</div>
+            <h2>Tell us about your pet, and we'll find the right person.</h2>
+            <p>
+              Share your area, pet type, the service you need and your dates
+              with our assistant — we'll take it from there and match you
+              with a sitter nearby.
+            </p>
+          </div>
+        </div>
+        <div>
+          <a href="#" onclick="document.getElementById('chat-launcher').click(); return false;" class="btn" style="background: var(--cream); color: var(--terracotta);">
+            Chat with the PawPost Assistant
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer>
+    <div class="container footer-inner">
+      <div>
+        <a href="#" class="logo">{{ pawmark }} PawPost</a>
+        <p class="footer-note">
+          A small, local pet-sitting and dog-walking marketplace based in
+          Leeds, West Yorkshire. Run by two co-founders, no call centre —
+          just real people who know the area.
+        </p>
+      </div>
+      <div class="footer-links">
+        <a href="#services">Services</a>
+        <a href="#areas">Areas</a>
+        <a href="#sitters">Sitters</a>
+        <a href="#faq">FAQ</a>
+      </div>
+    </div>
+    <div class="container copyright">
+      &copy; {{ 2026 }} PawPost. Built with care in Leeds.
+    </div>
+  </footer>
+
+  <!-- ============ CHAT WIDGET ============ -->
+  <button id="chat-launcher" aria-label="Open PawPost Assistant">
+    <svg viewBox="0 0 24 24"><path d="M4 4h16v12H8l-4 4V4Z"/></svg>
+  </button>
+
+  <div id="chat-panel">
+    <div class="chat-header">
+      {{ pawmark }}
+      <div>
+        <strong>PawPost Assistant</strong>
+        <span>Ask about pricing, areas, or how booking works</span>
+      </div>
+    </div>
+    <div class="chat-messages" id="chat-messages">
+      <div class="msg bot">
+        Hiya! 🐾 I'm the PawPost assistant. Ask me about overnight sitting,
+        prices, areas we cover, or how to book — happy to help.
+      </div>
+    </div>
+    <div class="chat-suggestions" id="chat-suggestions">
+      {% for q in faq_hints[:3] %}
+      <div class="chip" data-question="{{ q }}">{{ q }}</div>
+      {% endfor %}
+    </div>
+    <form class="chat-input" id="chat-form">
+      <input type="text" id="chat-input" placeholder="Type a question…" autocomplete="off">
+      <button type="submit" aria-label="Send">
+        <svg viewBox="0 0 24 24"><path d="M3 11l18-8-8 18-2-8-8-2Z"/></svg>
+      </button>
+    </form>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/chat.js') }}"></script>
+</body>
+</html>

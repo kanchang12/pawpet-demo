@@ -1,0 +1,95 @@
+customer_id,name,city,pet_name,pet_type,signup_date
+1,George Walker,Bradford,Tigger,Dog,2024-07-29
+2,Harry Patel,York,Bella,Rabbit,2024-11-12
+3,Noah Walker,Leeds,Rex,Cat,2024-05-18
+4,Oscar Patel,Sheffield,Toby,Dog,2025-01-01
+5,Ella Khan,Leeds,Cooper,Rabbit,2025-05-24
+6,Jack Taylor,Leeds,Buddy,Dog,2024-04-13
+7,Charlie Johnson,Sheffield,Daisy,Cat,2025-02-01
+8,Charlie Walker,Manchester,Coco,Guinea Pig,2024-06-17
+9,Finn Taylor,Wakefield,Rex,Guinea Pig,2025-02-07
+10,Oscar Khan,Sheffield,Oscar,Dog,2024-07-05
+11,Leo Johnson,Bradford,Bella,Cat,2024-12-27
+12,Leo Smith,Leeds,Charlie,Cat,2024-04-04
+13,James Wilson,Leeds,Toby,Cat,2024-07-21
+14,Charlie Taylor,Sheffield,Daisy,Guinea Pig,2024-07-03
+15,Charlie Evans,Manchester,Cooper,Dog,2025-02-01
+16,Harry Wilson,York,Shadow,Guinea Pig,2025-05-17
+17,James Johnson,Leeds,Nibbles,Rabbit,2025-04-14
+18,George Taylor,Manchester,Rosie,Guinea Pig,2024-05-11
+19,Harry Patel,Bradford,Oscar,Cat,2025-05-22
+20,Amelia Khan,Sheffield,Cooper,Dog,2025-01-28
+21,Finn Smith,Leeds,Buddy,Cat,2024-09-25
+22,Charlie Khan,Manchester,Nibbles,Dog,2024-05-24
+23,Mia Smith,York,Coco,Guinea Pig,2024-07-25
+24,Harry Walker,Wakefield,Misty,Cat,2024-06-06
+25,Jack Taylor,Leeds,Patch,Dog,2025-03-18
+26,Ella Smith,Leeds,Patch,Guinea Pig,2024-11-13
+27,Lily Patel,Leeds,Toby,Dog,2025-05-10
+28,Noah Johnson,Sheffield,Luna,Cat,2024-09-23
+29,George Hughes,Manchester,Patch,Dog,2025-01-12
+30,Amelia Evans,Wakefield,Patch,Rabbit,2024-07-12
+31,Ava Wilson,Manchester,Coco,Guinea Pig,2024-05-07
+32,Jack Khan,Bradford,Luna,Dog,2024-10-21
+33,Max Hughes,Leeds,Luna,Cat,2024-11-15
+34,Sophie Patel,Bradford,Luna,Cat,2024-09-06
+35,Jack Patel,York,Sox,Rabbit,2025-01-08
+36,Lily Smith,Wakefield,Sox,Rabbit,2025-02-03
+37,George Patel,Bradford,Cooper,Dog,2025-03-16
+38,Finn Patel,Bradford,Rex,Cat,2025-03-03
+39,Ella Taylor,Wakefield,Coco,Guinea Pig,2024-07-07
+40,James Johnson,Wakefield,Shadow,Rabbit,2024-03-23
+41,Olivia Wilson,Manchester,Coco,Cat,2025-03-15
+42,Grace Walker,Wakefield,Shadow,Dog,2024-04-27
+43,Amelia Patel,Sheffield,Charlie,Rabbit,2024-12-24
+44,Finn Patel,York,Daisy,Dog,2024-08-05
+45,Oscar Smith,Bradford,Rosie,Cat,2025-02-05
+46,George Wilson,Sheffield,Shadow,Cat,2024-06-30
+47,Noah Patel,York,Bella,Cat,2025-03-13
+48,Ella Evans,Wakefield,Buddy,Rabbit,2024-05-21
+49,George Evans,Leeds,Misty,Cat,2024-06-11
+50,Grace Wilson,Bradford,Buddy,Cat,2024-03-13
+51,Ava Evans,Bradford,Coco,Dog,2025-03-31
+52,Sophie Wilson,Wakefield,Toby,Guinea Pig,2025-02-11
+53,Finn Wilson,Leeds,Cooper,Rabbit,2024-05-31
+54,Ruby Brown,Leeds,Cooper,Guinea Pig,2024-08-24
+55,Ella Evans,Sheffield,Toby,Dog,2024-09-14
+56,Ruby Taylor,Bradford,Charlie,Guinea Pig,2024-03-01
+57,Lily Walker,Wakefield,Rosie,Rabbit,2024-10-07
+58,Amelia Wilson,Sheffield,Tigger,Dog,2025-03-04
+59,Jack Walker,Bradford,Shadow,Rabbit,2024-09-23
+60,Jack Walker,Manchester,Rosie,Guinea Pig,2025-02-04
+61,Mia Patel,Sheffield,Patch,Rabbit,2024-09-24
+62,Finn Smith,Bradford,Rex,Cat,2024-10-07
+63,Ruby Hughes,Wakefield,Tigger,Guinea Pig,2024-10-13
+64,Grace Taylor,Sheffield,Misty,Cat,2025-02-01
+65,Amelia Brown,Sheffield,Biscuit,Rabbit,2024-04-17
+66,Leo Brown,Manchester,Rosie,Cat,2024-03-13
+67,James Taylor,York,Biscuit,Dog,2024-10-20
+68,Harry Hughes,Manchester,Nibbles,Guinea Pig,2024-09-21
+69,Leo Patel,Wakefield,Bella,Dog,2025-04-03
+70,Harry Taylor,Manchester,Toby,Guinea Pig,2024-03-26
+71,Finn Taylor,Leeds,Oscar,Cat,2025-04-15
+72,Grace Walker,Sheffield,Biscuit,Rabbit,2025-03-22
+73,Grace Hughes,Wakefield,Toby,Guinea Pig,2025-04-30
+74,Finn Khan,Manchester,Misty,Guinea Pig,2024-07-11
+75,Leo Brown,Sheffield,Misty,Cat,2024-07-19
+76,Grace Johnson,Wakefield,Rex,Cat,2024-07-18
+77,Ella Wilson,Sheffield,Luna,Cat,2024-05-17
+78,Leo Evans,Wakefield,Daisy,Cat,2024-04-02
+79,Harry Evans,Bradford,Sox,Guinea Pig,2024-09-29
+80,James Taylor,York,Nibbles,Dog,2025-05-13
+81,Ruby Evans,York,Bella,Rabbit,2024-07-31
+82,Mia Evans,Sheffield,Sox,Cat,2024-11-05
+83,Leo Brown,York,Misty,Dog,2024-09-16
+84,Ella Evans,Wakefield,Milo,Guinea Pig,2024-05-05
+85,Max Walker,Leeds,Nibbles,Dog,2024-04-12
+86,Harry Patel,York,Milo,Dog,2024-07-12
+87,Mia Wilson,Manchester,Oscar,Rabbit,2024-08-20
+88,Mia Brown,York,Coco,Dog,2024-10-27
+89,Olivia Walker,Leeds,Whiskers,Cat,2025-01-27
+90,Amelia Smith,Leeds,Buddy,Cat,2025-05-04
+91,Olivia Hughes,Manchester,Buddy,Cat,2024-10-29
+92,George Hughes,Manchester,Oscar,Rabbit,2025-03-28
+93,Oscar Patel,Sheffield,Biscuit,Dog,2025-04-03
+94,Noah Brown,Leeds,Patch,Dog,2024-08-07
