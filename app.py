@@ -168,7 +168,7 @@ def api_chat():
             config=types.GenerateContentConfig(
                 system_instruction=PAWPOST_CONTEXT,
                 temperature=0.6,
-                max_output_tokens=300,
+                max_output_tokens=1500,
             ),
         )
         reply = (response.text or "").strip()
