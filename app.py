@@ -13,10 +13,13 @@ a more permanent store, this is the line to change.
 
 import os
 
+from dotenv import load_dotenv
 from flask import Flask, jsonify, render_template, request
 
 import db
 from knowledge import FAQ_HINTS, PAWPOST_CONTEXT
+
+load_dotenv()  # reads GEMINI_API_KEY from a .env file in the project root
 
 # --- Gemini setup (new google-genai SDK) ---------------------------------
 from google import genai
@@ -42,8 +45,13 @@ def get_gemini_client():
 
 app = Flask(__name__)
 
-# Rebuild the DB from CSVs every time the app boots
-db.init_db()
+# Rebuild the DB from CSVs every time the app boots.
+# Wrapped so a missing/bad CSV doesn't crash the whole container before
+# it can bind to $PORT (Cloud Run needs the port bound within the timeout).
+try:
+    db.init_db()
+except Exception as exc:  # pragma: no cover
+    app.logger.error("DB init failed: %s", exc)
 
 
 SERVICES = [
@@ -85,6 +93,11 @@ SERVICES = [
 ]
 
 AREAS = ["Leeds", "Bradford", "Wakefield", "York", "Sheffield", "Manchester"]
+
+
+@app.route("/healthz")
+def healthz():
+    return "ok", 200
 
 
 @app.route("/")
@@ -172,4 +185,5 @@ def api_chat():
 
 
 if __name__ == "__main__":
-    app.run(debug=True, port=5000)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(debug=True, host="0.0.0.0", port=port)
